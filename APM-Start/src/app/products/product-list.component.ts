@@ -4,6 +4,7 @@ import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 
 @Component({
     selector : 'pm-products',
+    moduleId : module.id,
     templateUrl : 'product-list.component.html',
     styleUrls : ['product-list.component.css']
 })
@@ -11,7 +12,7 @@ export class ProductListComponent implements OnInit{
     pageTitle : string = "Products List";
     imageSize : number = 50;
     showImage : boolean = false;
-    listFilter : string ='cart';
+    listFilter : string ='ham';
     products : IProduct[] = [
         {
             "productId": 1,
