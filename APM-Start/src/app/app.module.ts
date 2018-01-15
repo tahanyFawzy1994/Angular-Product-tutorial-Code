@@ -26,7 +26,7 @@ import { WelcomeComponent } from './home/welcome.component';
     RouterModule.forRoot([
       {path : 'products' , component : ProductListComponent},
       {path : 'welcome' , component : WelcomeComponent},
-      {path : 'product/:id' , component : ProductDetailComponent},
+      {path : 'product/:id' , component : ProductDetailComponent},//to pass parameter
       {path : '' ,redirectTo:'welcome', pathMatch : 'full'},//the default if nothing entered or on the application load
       {path : '**' , redirectTo:'welcome', pathMatch : 'full'}//for any other path
     ])
