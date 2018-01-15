@@ -14,6 +14,7 @@ export class ProductService{
     
     getProducts() : Observable<IProduct[]>{
         return this.httpObj.get(this.productsURL)
+        //use map to cast http responce to json
         .map((response : Response)=><IProduct[]> response.json())
         .do(data=>console.log(JSON.stringify(data)))
         .catch(this.handleError);

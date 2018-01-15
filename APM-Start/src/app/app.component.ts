@@ -3,7 +3,22 @@ import { ProductService } from './products/product.service';
 
 @Component({
   selector: 'pm-root',
-  template : `<pm-products></pm-products>`,
+  template : `
+  <div>
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <a class="navbar-bread">{{pageTitle}}</a>
+        <ul class="nav navbar-nav">
+          <li><a [routerLink]="['/welcome']">Home</a></li>
+          <li><a [routerLink]="['/products']">Product List</a></li>
+        </ul>
+      </div>
+  </nav>
+  <div class ="container">
+  <router-outlet></router-outlet><!--where to display the component view -->
+  </div>
+</div>
+`,
   providers : [ProductService]
 })
 export class AppComponent {
