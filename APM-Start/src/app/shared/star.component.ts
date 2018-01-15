@@ -1,5 +1,4 @@
-import { Component, Input } from "@angular/core";
-import { OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
+import { Component, Input, EventEmitter,Output,OnChanges } from "@angular/core";
 
 
 @Component({
@@ -11,8 +10,12 @@ import { OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
 export class StarComponent implements OnChanges{
     starWidth : number;
     @Input() rating : number ;
-
+    @Output() ratingClicked : EventEmitter<string> 
+        = new EventEmitter<string>();
     ngOnChanges(): void {
         this.starWidth = this.rating * 86/5;
+    }
+    onClick(){
+        this.ratingClicked.emit('The rating '+this.rating+' was clicked !');
     }
 }
