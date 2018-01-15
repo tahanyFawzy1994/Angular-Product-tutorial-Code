@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { IProduct } from "./product";
 import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 import { ProductService } from "./product.service";
+import { error } from "selenium-webdriver";
 
 @Component({
     selector : 'pm-products',
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit{
     imageSize : number = 50;
     showImage : boolean = false;
     listFilter : string ='a';
-
+    errorMessage : string = 'Error in get products'
     //need to inject service
     constructor(private productServiceObj : ProductService){
     }
@@ -24,7 +25,9 @@ export class ProductListComponent implements OnInit{
     }
     ngOnInit() : void {
         //will fill the array in initialization
-        this.products = this.productServiceObj.getProducts();
+        this.productServiceObj.getProducts()
+        .subscribe(products => this.products = products ,
+        error=>this.errorMessage = <any>error);
     }
     onRatingClicked(msg :string){
         this.pageTitle = 'PageList : '+msg;
