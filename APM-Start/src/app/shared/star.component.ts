@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
 
 
@@ -10,7 +10,7 @@ import { OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
 })
 export class StarComponent implements OnChanges{
     starWidth : number;
-    rating : number = 4;
+    @Input() rating : number ;
 
     ngOnChanges(): void {
         this.starWidth = this.rating * 86/5;
