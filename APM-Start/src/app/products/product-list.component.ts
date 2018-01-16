@@ -16,19 +16,23 @@ export class ProductListComponent implements OnInit{
     showImage : boolean = false;
     listFilter : string ='a';
     errorMessage : string = 'Error in get products'
+    products : IProduct[];
+
     //need to inject service
     constructor(private productServiceObj : ProductService){
     }
-    products : IProduct[];
+    
     toggleImage() : void{
         this.showImage = !this.showImage;
     }
+    
     ngOnInit() : void {
         //will fill the array in initialization
         this.productServiceObj.getProducts()
         .subscribe(products => this.products = products ,
         error=>this.errorMessage = <any>error);
     }
+    
     onRatingClicked(msg :string){
         this.pageTitle = 'PageList : '+msg;
         

@@ -10,6 +10,7 @@ import { ProductDetailComponent } from './products/product-detail.component';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailGuard } from './products/product-guard.service';
+import { ConvertToSpaces } from './shared/convertToSpaces.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductDetailGuard } from './products/product-guard.service';
     ProductListComponent,
     ProductFilterPipe,
     StarComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ConvertToSpaces
   ],
   imports: [
     BrowserModule,

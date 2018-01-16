@@ -16,8 +16,14 @@ export class ProductService{
         return this.httpObj.get(this.productsURL)
         //use map to cast http responce to json
         .map((response : Response)=><IProduct[]> response.json())
-        .do(data=>console.log(JSON.stringify(data)))
+        //.do(data=>console.log(JSON.stringify(data)))
         .catch(this.handleError);
+    }
+
+    getProduct(id :number) : Observable <IProduct>{
+        return this.getProducts()
+        .map((products: IProduct[]) => products.find(p => p.productId == id))
+        .do(data=>console.log(JSON.stringify(data)));
     }
     
     private handleError(error : Response) {
