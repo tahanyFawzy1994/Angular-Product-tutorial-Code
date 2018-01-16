@@ -5,22 +5,18 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
+import { AppRoutingModule } from './shared/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    
+    WelcomeComponent  
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,//must be in the app.module
     HttpModule,
-    RouterModule.forRoot([
-      {path : 'welcome' , component : WelcomeComponent},
-      {path : '' ,redirectTo:'welcome', pathMatch : 'full'},//the default if nothing entered or on the application load
-      {path : '**' , redirectTo:'welcome', pathMatch : 'full'}//for any other path
-    ]),
-    ProductModule
+    ProductModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

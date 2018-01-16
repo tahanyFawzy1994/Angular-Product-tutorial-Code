@@ -11,7 +11,7 @@ import { ConvertToSpaces } from "./convertToSpaces.pipe";
     ],
     imports :[CommonModule],
     exports:[
-        CommonModule,
+        CommonModule,//instead of browser module
         FormsModule,
         StarComponent,
         ConvertToSpaces
