@@ -8,25 +8,22 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { ProductDetailGuard } from "./product-guard.service";
 import { ProductService } from "./product.service";
-import { ConvertToSpaces } from "../shared/convertToSpaces.pipe";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations:[
         ProductDetailComponent,
         ProductListComponent,
-        ProductFilterPipe,
-        StarComponent,
-        ConvertToSpaces
+        ProductFilterPipe
     ],
     imports :[
-        FormsModule ,
-        CommonModule,
         RouterModule.forChild([
             {path : 'products' , component : ProductListComponent},
             {path : 'product/:id' ,canActivate :[ProductDetailGuard] ,component : ProductDetailComponent},//to pass parameter
             {path : '' ,redirectTo:'welcome', pathMatch : 'full'},//the default if nothing entered or on the application load
             {path : '**' , redirectTo:'welcome', pathMatch : 'full'}//for any other path
-          ])
+          ]),
+          SharedModule
     ],
     providers : [ProductService,
         ProductDetailGuard]
