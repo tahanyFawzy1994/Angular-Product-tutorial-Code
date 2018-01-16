@@ -18,8 +18,7 @@ import { ProductService } from './products/product.service';
   <router-outlet></router-outlet><!--where to display the component view -->
   </div>
 </div>
-`,
-  providers : [ProductService]
+`
 })
 export class AppComponent {
   title = 'Angular: Getting Started';
